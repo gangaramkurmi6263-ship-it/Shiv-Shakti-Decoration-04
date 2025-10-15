@@ -1,0 +1,164 @@
+/* Shiv Shakti Flower Decoration - React + Tailwind CSS website Includes: Home, About, Services, Contact sections Purpose: Decoration services for weddings, birthdays, anniversaries & pujas */
+
+import React, { useState } from "react"; import { Phone, Mail, MapPin } from "lucide-react";
+
+export default function ShivShaktiWebsite() { const [page, setPage] = useState("home");
+
+const demoImages = [ "https://source.unsplash.com/1200x800/?wedding,flowers,decoration", "https://source.unsplash.com/1200x800/?birthday,decor,balloons", "https://source.unsplash.com/1200x800/?ganesh,puja,flowers", "https://source.unsplash.com/1200x800/?anniversary,flowers,lights" ];
+
+return ( <div className="min-h-screen bg-gradient-to-b from-white via-pink-50 to-white text-gray-800"> <header className="shadow-sm bg-white/60 backdrop-blur sticky top-0 z-40"> <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"> <div className="flex items-center gap-4"> <div className="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-2xl font-bold text-pink-800">SS</div> <div> <h1 className="text-lg font-semibold">Shiv Shakti Flower Decoration</h1> <p className="text-sm text-gray-500">Weddings • Birthdays • Anniversaries • Puja Decor</p> </div> </div>
+
+<nav className="flex items-center gap-4">
+        <button onClick={() => setPage("home")} className={`px-3 py-2 rounded-md ${page==="home"?"bg-pink-100":"hover:bg-pink-50"}`}>Home</button>
+        <button onClick={() => setPage("services")} className={`px-3 py-2 rounded-md ${page==="services"?"bg-pink-100":"hover:bg-pink-50"}`}>Services</button>
+        <button onClick={() => setPage("contact")} className={`px-3 py-2 rounded-md ${page==="contact"?"bg-pink-100":"hover:bg-pink-50"}`}>Contact</button>
+        <a href="#contact" onClick={() => setPage("contact")} className="ml-4 inline-block px-4 py-2 bg-pink-600 text-white rounded-md shadow">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main className="max-w-6xl mx-auto px-6 py-12">
+    {page === "home" && (
+      <>
+        <section className="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-4xl font-extrabold leading-tight">Beautiful decorations for weddings, birthdays, anniversaries & pujas</h2>
+            <p className="mt-4 text-gray-700">From elegant wedding mandaps to birthday themes, anniversary setups and Ganesh Puja decor — Shiv Shakti Flower Decoration makes your events look magical. We provide rental decor, full setup and in-house floristry.</p>
+
+            <div className="mt-6 flex gap-4">
+              <a onClick={() => setPage("services")} className="cursor-pointer inline-block px-5 py-3 bg-pink-600 text-white rounded-md shadow">Our Services</a>
+              <a href="#contact" onClick={() => setPage("contact")} className="cursor-pointer inline-block px-5 py-3 border border-pink-200 rounded-md">Get a Quote</a>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              {demoImages.slice(0,3).map((src, idx) => (
+                <div key={idx} className="rounded-lg overflow-hidden shadow-sm">
+                  <img src={src} alt={`demo-${idx}`} className="w-full h-28 object-cover" />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 bg-white p-4 rounded-md shadow-sm flex items-center gap-4">
+              <Phone className="w-6 h-6 text-pink-600" />
+              <div>
+                <div className="text-sm text-gray-500">Call us</div>
+                <div className="font-medium">9399828925</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img src={demoImages[0]} alt="hero" className="w-full h-96 object-cover" />
+          </div>
+        </section>
+
+        {/* About Us Section */}
+        <section className="mt-16 bg-white p-8 rounded-2xl shadow-sm">
+          <h2 className="text-3xl font-bold mb-4">About Us</h2>
+          <p className="text-gray-700 leading-relaxed">
+            Shiv Shakti Flower Decoration was founded to bring beauty, joy, and elegance to every celebration. From wedding ceremonies to birthdays and traditional pujas, our mission is to deliver creative, affordable, and high-quality decorations that make every moment special.
+          </p>
+          <p className="mt-3 text-gray-700 leading-relaxed">
+            With years of experience in event decoration, we take pride in transforming ordinary spaces into stunning venues filled with color, light, and floral art. Every design is customized to fit your vision and budget.
+          </p>
+        </section>
+      </>
+    )}
+
+    {page === "services" && (
+      <section>
+        <h2 className="text-3xl font-bold">Our Services</h2>
+        <p className="mt-2 text-gray-600">Complete decoration and rental solutions — for weddings, birthdays, anniversaries and pujas.</p>
+
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-xl p-6 shadow-sm">
+            <h3 className="font-semibold text-lg">Wedding & Mandap Decoration</h3>
+            <p className="mt-2 text-sm text-gray-600">Traditional to modern mandaps, floral backdrops, and lighting arrangements.</p>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm">
+            <h3 className="font-semibold text-lg">Birthday & Anniversary Setup</h3>
+            <p className="mt-2 text-sm text-gray-600">Theme-based balloon, flower and light decoration for birthdays and anniversaries.</p>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm">
+            <h3 className="font-semibold text-lg">Puja & Event Decoration</h3>
+            <p className="mt-2 text-sm text-gray-600">Ganesh Puja, housewarming and festive decor with vibrant floral designs.</p>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <h4 className="font-semibold">Gallery</h4>
+          <div className="mt-4 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {demoImages.map((src, i) => (
+              <div key={i} className="rounded-lg overflow-hidden shadow-sm">
+                <img src={src} alt={`gallery-${i}`} className="w-full h-40 object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {page === "contact" && (
+      <section id="contact">
+        <h2 className="text-3xl font-bold">Contact Us</h2>
+        <p className="mt-2 text-gray-600">Reach out for a quote or to discuss your decoration requirements.</p>
+
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl p-6 shadow-sm">
+            <h3 className="font-semibold">Get in touch</h3>
+            <p className="mt-2 text-sm text-gray-700">We typically respond within 12-24 hours.</p>
+
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-pink-600" />
+                <div>
+                  <div className="text-xs text-gray-500">Phone</div>
+                  <div className="font-medium">9399828925</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-pink-600" />
+                <div>
+                  <div className="text-xs text-gray-500">Address</div>
+                  <div className="font-medium">Bada Bajar, Sagar, MP</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-pink-600" />
+                <div>
+                  <div className="text-xs text-gray-500">Email</div>
+                  <div className="font-medium">(add-your-email@example.com)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm">
+            <h3 className="font-semibold">Request a Quote</h3>
+            <form className="mt-4 grid gap-3">
+              <input type="text" placeholder="Your name" className="w-full px-4 py-2 border rounded-md" />
+              <input type="tel" placeholder="Phone" className="w-full px-4 py-2 border rounded-md" defaultValue="9399828925" />
+              <input type="email" placeholder="Email" className="w-full px-4 py-2 border rounded-md" />
+              <textarea placeholder="Tell us about your event (date/guests/location)" className="w-full px-4 py-2 border rounded-md h-28" />
+              <div className="flex items-center justify-between">
+                <button type="button" className="px-4 py-2 bg-pink-600 text-white rounded-md">Send Request</button>
+                <div className="text-xs text-gray-500">Or call: 9399828925</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <footer className="mt-12 bg-white/60 border-t py-6">
+    <div className="max-w-6xl mx-auto px-6 text-center text-sm text-gray-600">© {new Date().getFullYear()} Shiv Shakti Flower Decoration — All rights reserved • 9399828925 • Bada Bajar, Sagar, MP</div>
+  </footer>
+</div>
+
+); }
+
